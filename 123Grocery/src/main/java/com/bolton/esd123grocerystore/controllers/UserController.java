@@ -1,5 +1,7 @@
 package com.bolton.esd123grocerystore.controllers;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -57,5 +59,12 @@ public class UserController {
 		//System.out.println(newUser);
 		userRepository.save(newUser);
 		return "redirect:/";
+	}
+	
+	@GetMapping("/logout")
+	public String userLogOut(ModelMap model, HttpSession session) {
+		session.invalidate();
+		model.put("loggedout", "Your are successfully logged out!");
+		return "login";
 	}
 }
