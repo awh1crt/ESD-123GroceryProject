@@ -22,11 +22,16 @@ public class CartProductsServiceImpl implements CartProductsService{
 	@Autowired
 	private ProductRepository productRepository;
 	@Override
-	public CartProducts addProducts(int cartId, int productId) {
+	public CartProducts addProducts(int cartId, int productId, int quantity) {
 		CartProducts cartProducts= new CartProducts();
 		Product foundProduct = productRepository.getById(productId);
+		
+		double price = foundProduct.getProductPrice();
+		double subTotalPrice = price * quantity;
 		cartProducts.setCart(cartId);
 		cartProducts.setProduct(foundProduct);
+		cartProducts.setQuantity(quantity);
+		cartProducts.setSubTotalForItem(subTotalPrice);
 		
 		
 		return  this.cartProductsRepository.save(cartProducts);

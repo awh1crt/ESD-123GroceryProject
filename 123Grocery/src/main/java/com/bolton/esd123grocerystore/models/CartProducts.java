@@ -24,6 +24,8 @@ public class CartProducts {
 	private Product product;
 	
 	private int cartId;
+	private int quantity;
+	private double subTotalForItem;
 
 	
 	public CartProducts(Product product, int cartId) {
@@ -50,6 +52,24 @@ public class CartProducts {
 
 	public void setCart(int foundCart) {
 		this.cartId = foundCart;
+	}
+
+	
+	
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public double getSubTotalForItem() {
+		return subTotalForItem;
+	}
+
+	public void setSubTotalForItem(double subTotalForItem) {
+		this.subTotalForItem = subTotalForItem;
 	}
 
 	@Override

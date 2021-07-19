@@ -93,7 +93,7 @@ public class CartController {
 		int userId = userDetails.getUserId();
 		Cart cartDetails = cartService.addItemstoCartByProductAndQuantityAndUser(productId, quantity, userId);
 		int cartId = cartDetails.getCartId();
-		cartProductsService.addProducts(cartId, productId);
+		cartProductsService.addProducts(cartId, productId, quantity);
 		
 		
 		
