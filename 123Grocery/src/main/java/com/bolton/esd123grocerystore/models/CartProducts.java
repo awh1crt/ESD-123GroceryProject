@@ -26,12 +26,14 @@ public class CartProducts {
 	private int cartId;
 	private int quantity;
 	private double subTotalForItem;
+	private int userId;
 
 	
-	public CartProducts(Product product, int cartId) {
+	public CartProducts(Product product, int cartId, int userId) {
 		super();
 		this.product = product;
 		this.cartId = cartId;
+		this.userId = userId;
 	}
 
 	public CartProducts() {
@@ -71,11 +73,23 @@ public class CartProducts {
 	public void setSubTotalForItem(double subTotalForItem) {
 		this.subTotalForItem = subTotalForItem;
 	}
+	
+	
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 
 	@Override
 	public String toString() {
-		return "CartProducts [Id=" + Id + ", product=" + product + ", cart=" + cartId + "]";
+		return "CartProducts [Id=" + Id + ", product=" + product + ", cartId=" + cartId + ", quantity=" + quantity
+				+ ", subTotalForItem=" + subTotalForItem + ", userId=" + userId + "]";
 	}
+
 	
 	
 

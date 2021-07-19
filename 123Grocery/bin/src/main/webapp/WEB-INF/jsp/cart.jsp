@@ -26,7 +26,6 @@
 								<thead>
 
 									<tr>
-										<th>Cart ID</th>
 										<th>Item ID</th>
 										<th>Name</th> 
 										<th>Description</th>
@@ -38,14 +37,13 @@
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach var="cart" items="${cart}">
-<%-- 										<c:forEach var="products" items="${products}"> --%>
+<%-- 									<c:forEach var="cart" items="${cart}"> --%>
+										<c:forEach var="products" items="${products}">
 										
 										<tr>
-											<td><c:out value="${cart.cartId }" /></td>
-											<td><c:out value="${cart.product.productId }" /></td>
-											<td><c:out value="${cart.product.productName }" /></td>
-<%-- 											<td><c:out value="${products.productId}" /></td>	 --%>
+<%-- 											<td><c:out value="${cart.cartId }" /></td> --%>
+										
+											<td><c:out value="${products.productId}" /></td>	
 <%-- 											<td><c:out value="${products.product}" /></td>					 --%>
 										</tr>
 									</c:forEach>

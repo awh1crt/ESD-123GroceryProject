@@ -44,7 +44,7 @@ public class CartTest {
 	
 	@Test
 	public void addOneItemToCart() {
-		int productId = 2;
+		int productId = 1;
 		int userId = 1;
 		int qty = 10;
 		

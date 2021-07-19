@@ -7,7 +7,7 @@ import com.bolton.esd123grocerystore.models.CartProducts;
 @Service
 public interface CartProductsService {
 	
-	CartProducts addProducts(int cartId, int productId,int quantity);
+	CartProducts addProducts(int cartId, int productId,int quantity, int userId);
 	
 	
 
