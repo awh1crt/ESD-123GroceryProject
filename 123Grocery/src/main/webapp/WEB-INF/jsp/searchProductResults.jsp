@@ -38,7 +38,7 @@
 							href="/selectProduct?id=${ product.productId}">Select
 								${product.productId}</a></td>
 						<td><a type="button" class="btn btn-primary"
-							href="/buyProduct?id=${product.productId }">Buy</a></td>
+							href="/buyProduct?productId=${product.productId }&quantity=1&user=${userName}">Buy</a></td>
 					</tr>
 
 				</c:forEach>

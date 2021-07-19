@@ -61,26 +61,8 @@ public class CartController {
 	public String showCart(Model model, @ModelAttribute("userName") String user){
 		User foundUser = userService.findUserByEMail(user);
 		int foundUserId = foundUser.getUserId();
-		//List<Cart> cart = cartRepository.findByUserId(foundUserId);
 		List<CartProducts> cartProducts = cartProductsRepository.findByUserId(foundUserId);
-//		int i = 0;
-//		List<Product> products = new ArrayList<>();
-//		while (i < cart.size()) {
-//			//System.out.println("product list " + cart.get(i));
-//			int foundProductId = cart.get(i).getProductId();
-//			System.out.println("productId = " + foundProductId);
-//			products.add(i, productRepository.getById(foundProductId));
-//			System.out.println("Products " + products.get(i));
-//			
-//			i++;
-//		}
-		
 		((HashMap<String, Object>) model).put("cart", cartProducts);
-//		((HashMap<String, Object>) model).put("products", products);
-		System.out.println("Cart items = " + cartProducts);
-//		System.out.println("Products = " + products);
-		
-		
 		return("/cart");
 	
 	}

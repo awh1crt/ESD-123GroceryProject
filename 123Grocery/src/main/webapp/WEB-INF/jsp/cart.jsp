@@ -39,51 +39,17 @@
 								</thead>
 								<tbody>
 									<c:forEach var="cart" items="${cart}">
-<%-- 										<c:forEach var="products" items="${products}"> --%>
-										
-										<tr>
+									<tr>
 											<td><c:out value="${cart.cartId }" /></td>
 											<td><c:out value="${cart.product.productId }" /></td>
-											<td><c:out value="${cart.product.productName }" /></td>
-<%-- 											<td><c:out value="${products.productId}" /></td>	 --%>
-<%-- 											<td><c:out value="${products.product}" /></td>					 --%>
-										</tr>
-									</c:forEach>
-<!-- 									</tbody> -->
-<%-- 											<td><c:out value="${cart.productId}" /></td> --%>
-<%-- 											<td><fmt:formatNumber --%>
-<%-- <%-- 													value="${ cart.productId} " type="currency" /></td> --%> --%>
-<%-- <%-- 											<td><c:out value="${ cart.productId}" /></td> --%> --%>
-<%-- <%-- 											<td><input type="number" value="${cart.quantity}" --%> --%>
-<%-- 												class="form-control" /></td> --%>
-<%-- 											<td><fmt:formatNumber --%>
-<%-- <%-- 													value="${ cart.quantity * cart.productId}" --%> --%>
-<%-- <%-- 													type="currency" /></td> --%> --%>
-<%-- 											<td><a class="fas fa-trash icon-dark" --%>
-<%-- <%-- 												href="/removeFromCart?id=${ cart.productId}"> </a></td> --%> --%>
-
-<!-- 							<div class="col"> -->
-							
-<!-- <!-- 								<thead> --> -->
-
-<!-- <!-- 									<tr> --> -->
-<!-- <!-- 										<th>Name</th> --> -->
-<!-- <!-- 										<th>Description</th> --> -->
-<!-- <!-- 										<th>Price</th> --> -->
-<!-- <!-- 										<th>Stock Qty</th> --> -->
-<!-- <!-- 										<th>Qty Ordered</th> --> -->
-<!-- <!-- 										<th>SubTotal</th> --> -->
-
-<!-- <!-- 									</tr> --> -->
-<!-- <!-- 								</thead> --> -->
-<!-- <!-- 								<tbody> --> -->
-<%-- 									<c:forEach var="products" items="${products}"> --%>
-<!-- 										<tr>				 -->
-<%--  											<td><c:out value="${products.productId}" /></td> --%>
-<!--  										</tr> -->
-<%-- 								</c:forEach> --%>
-
-<!-- 								</tbody> -->
+											<td><c:out value="${cart.product.productName }" /></td>											
+											<td><c:out value="${cart.product.productDescription }" /></td>
+											<td><fmt:formatNumber value="${ cart.product.productPrice} " type="currency" /></td>
+											<td><c:out value="${cart.product.productStock }" /></td>
+											<td><c:out value="${cart.quantity }" /></td>
+											<td><fmt:formatNumber value="${ cart.subTotalForItem} " type="currency" /></td>
+									</tr>
+							</c:forEach>
 							</table>
 						</form>
 					</div>
