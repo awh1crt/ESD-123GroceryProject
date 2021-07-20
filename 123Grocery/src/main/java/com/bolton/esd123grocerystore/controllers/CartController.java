@@ -64,10 +64,6 @@ public class CartController {
 		User foundUser = userService.findUserByEMail(user);
 		int foundUserId = foundUser.getUserId();
 		List<CartProducts> cartProducts = cartProductsRepository.findByUserId(foundUserId);
-		for (int i = 0; i < cartProducts.size(); i++) {
-			total = total + cartProducts.get(i).getCartTotal();
-		}
-		cartProductsService.
 		((HashMap<String, Object>) model).put("cart", cartProducts);
 		
 		return("/cart");
