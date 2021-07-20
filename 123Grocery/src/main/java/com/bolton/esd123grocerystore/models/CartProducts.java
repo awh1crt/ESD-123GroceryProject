@@ -26,6 +26,7 @@ public class CartProducts {
 	private int cartId;
 	private int quantity;
 	private double subTotalForItem;
+	private double cartTotal;
 	private int userId;
 
 	
@@ -84,10 +85,18 @@ public class CartProducts {
 		this.userId = userId;
 	}
 
+	public double getCartTotal() {
+		return cartTotal;
+	}
+
+	public void setCartTotal(double cartTotal) {
+		this.cartTotal = cartTotal;
+	}
+
 	@Override
 	public String toString() {
 		return "CartProducts [Id=" + Id + ", product=" + product + ", cartId=" + cartId + ", quantity=" + quantity
-				+ ", subTotalForItem=" + subTotalForItem + ", userId=" + userId + "]";
+				+ ", subTotalForItem=" + subTotalForItem + ", cartTotal=" + cartTotal + ", userId=" + userId + "]";
 	}
 
 	

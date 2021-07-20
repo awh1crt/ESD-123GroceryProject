@@ -2,6 +2,7 @@ package com.bolton.esd123grocerystore.controllers;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,11 +60,16 @@ public class CartController {
 	
 	@RequestMapping(value = "/cart", method = { RequestMethod.GET})
 	public String showCart(Model model, @ModelAttribute("userName") String user){
+		double total = 0;
 		User foundUser = userService.findUserByEMail(user);
 		int foundUserId = foundUser.getUserId();
 		List<CartProducts> cartProducts = cartProductsRepository.findByUserId(foundUserId);
-		
+		for (int i = 0; i < cartProducts.size(); i++) {
+			total = total + cartProducts.get(i).getCartTotal();
+		}
+		cartProductsService.
 		((HashMap<String, Object>) model).put("cart", cartProducts);
+		
 		return("/cart");
 	
 	}

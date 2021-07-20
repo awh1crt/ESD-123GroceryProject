@@ -55,6 +55,8 @@
 					</div>
 					<div class="col">
 						<h2>Total cost</h2>
+						
+						</div>
 
 
 
@@ -69,6 +71,6 @@
 		</c:otherwise>
 	</c:choose>
 
-
+<script src="/123Grocery/src/main/resources/static/calc_total.js"> </script>
 </body>
 </html>
