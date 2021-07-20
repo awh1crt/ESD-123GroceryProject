@@ -21,6 +21,9 @@ public class CartProductsServiceImpl implements CartProductsService{
 	private CartRepository cartRepository;
 	@Autowired
 	private ProductRepository productRepository;
+	@Autowired
+	private ProductService productService;
+	
 	@Override
 	public CartProducts addProducts(int cartId, int productId, int quantity, int userId) {
 		CartProducts cartProducts= new CartProducts();
@@ -36,6 +39,20 @@ public class CartProductsServiceImpl implements CartProductsService{
 		
 		
 		return  this.cartProductsRepository.save(cartProducts);
+	}
+	@Override
+	public CartProducts updateQuantityByOne(int cartId) {
+		Optional<CartProducts> foundCartProducts = cartProductsRepository.findById(cartId);
+		//foundCartProducts.get().setQuantity(foundCartProducts.get().getQuantity()+1);
+		CartProducts cartProductsToUpdate = foundCartProducts.get();
+		cartProductsToUpdate.setQuantity(foundCartProducts.get().getQuantity()+1);
+		cartProductsToUpdate.setSubTotalForItem(cartProductsToUpdate.getQuantity() * foundCartProducts.get().getProduct().getProductPrice());
+		return cartProductsRepository.save(cartProductsToUpdate);
+	}
+	@Override
+	public void updateCartProductsSubTotal(int cartId) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

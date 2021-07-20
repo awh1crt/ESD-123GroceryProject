@@ -13,5 +13,7 @@ import com.bolton.esd123grocerystore.models.User;
 public interface CartRepository extends JpaRepository<Cart, Integer>{
 	
 	public List<Cart> findByUserId(int userId);
+	boolean existsByUserIdAndProductId(int userId, int productId);
+	public Cart getByUserIdAndProductId(int userId, int productId);
 
 }

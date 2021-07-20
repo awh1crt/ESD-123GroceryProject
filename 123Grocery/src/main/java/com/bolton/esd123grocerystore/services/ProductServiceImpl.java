@@ -52,4 +52,12 @@ public class ProductServiceImpl implements ProductService {
 		return products;
 	}
 
+	@Override
+	public void removeOneFromStockLevel(int Id) {
+		Optional<Product> product = productRepository.findById(Id);
+		Product updatedProduct = product.get();
+		updatedProduct.setProductStock(updatedProduct.getProductStock() - 1);
+		productRepository.save(updatedProduct);
+	}
+
 }

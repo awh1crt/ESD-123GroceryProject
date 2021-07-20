@@ -18,5 +18,7 @@ public interface ProductService {
 
 	Iterable<Product> findByProductName(String sName);
 	
+	void removeOneFromStockLevel(int Id);
+	
  
 }

@@ -65,6 +65,6 @@ public class UserController {
 	public String userLogOut(ModelMap model, HttpSession session) {
 		session.invalidate();
 		model.put("loggedout", "Your are successfully logged out!");
-		return "login";
+		return ("/login");
 	}
 }

@@ -15,5 +15,6 @@ public interface CartService {
 	Cart addItemToCartByProductAndQuantity(int productid, int quantity);
 	List<Cart> showAllItemsInUserCart(User user);
 	Cart addItemstoCartByProductAndQuantityAndUser(int productid, int quantity, int userId);
+	
 
 }

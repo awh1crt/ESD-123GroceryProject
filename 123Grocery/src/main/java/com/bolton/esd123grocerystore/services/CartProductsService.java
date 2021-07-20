@@ -8,6 +8,13 @@ import com.bolton.esd123grocerystore.models.CartProducts;
 public interface CartProductsService {
 	
 	CartProducts addProducts(int cartId, int productId,int quantity, int userId);
+	CartProducts updateQuantityByOne(int cartId);
+	
+	void updateCartProductsSubTotal(int cartId);
+	
+
+	
+	
 	
 	
 

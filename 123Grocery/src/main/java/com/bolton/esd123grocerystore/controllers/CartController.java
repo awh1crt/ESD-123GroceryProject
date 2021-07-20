@@ -62,6 +62,7 @@ public class CartController {
 		User foundUser = userService.findUserByEMail(user);
 		int foundUserId = foundUser.getUserId();
 		List<CartProducts> cartProducts = cartProductsRepository.findByUserId(foundUserId);
+		
 		((HashMap<String, Object>) model).put("cart", cartProducts);
 		return("/cart");
 	
@@ -74,11 +75,26 @@ public class CartController {
 		User userDetails = userRepository.findByUserEmail(user);
 		System.out.println("user details = " + userDetails);
 		int userId = userDetails.getUserId();
-		Cart cartDetails = cartService.addItemstoCartByProductAndQuantityAndUser(productId, quantity, userId);
-		int cartId = cartDetails.getCartId();
-		int userId1 = userDetails.getUserId();
-		cartProductsService.addProducts(cartId, productId, quantity, userId1);
+		System.out.println("USer id = " + userId);
+		System.out.println("product id = "+ productId);
+		boolean exists  = cartRepository.existsByUserIdAndProductId(userId, productId);
+		if (exists) {
+			Cart cartToUpdateId =  cartRepository.getByUserIdAndProductId(userId, productId);
+			cartToUpdateId.setQuantity(cartToUpdateId.getQuantity() + 1);
+			cartRepository.save(cartToUpdateId);
+			cartProductsService.updateQuantityByOne(cartToUpdateId.getCartId());
+			productService.removeOneFromStockLevel(productId);
+//			double totalPrice = cartProductsRepository.calculateCartTotalForUser(userId);
+//			System.out.println("tota price = " + totalPrice);
+		} else {
 		
+			Cart cartDetails = cartService.addItemstoCartByProductAndQuantityAndUser(productId, quantity, userId);
+			int cartId = cartDetails.getCartId();
+			int userId1 = userDetails.getUserId();
+			cartProductsService.addProducts(cartId, productId, quantity, userId1);
+			productService.removeOneFromStockLevel(productId);
+
+		}
 		
 		
 		
