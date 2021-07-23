@@ -30,31 +30,26 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public Iterable<User> showAllUsers() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public void deleteById(int id) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public User updateUser(User user) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public User updateUserById(int id) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Object findAll() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

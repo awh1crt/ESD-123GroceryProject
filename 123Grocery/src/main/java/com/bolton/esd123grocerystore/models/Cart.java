@@ -29,7 +29,6 @@ public class Cart {
 		this.quantity = quantity;
 	}
 	public Cart() {
-		// TODO Auto-generated constructor stub
 	}
 	public int getCartId() {
 		return cartId;

@@ -31,8 +31,6 @@ public class UserController {
 	public String userLogin(@RequestParam String userEmail, String password, ModelMap model) {
 	
 		String userName = userService.validateRegisteredUser(userEmail, password);
-		System.out.println("Controller says "+userEmail+" password "+password);
-		System.out.println("says user name  = " +userName);
 		if(userName==null) {
 			model.put("errorMessage", "Not a valid user");
 			return "login";
@@ -53,10 +51,6 @@ public class UserController {
 			
 		User newUser = new User(ufirstname,ulastname, upass, uemail, uaddress);
 		System.out.println(newUser);
-		//BCryptPasswordEncoder passwordEncyptionEncoder = new BCryptPasswordEncoder();
-		//String encyptedPassword = passwordEncyptionEncoder.encode(newUser.getUserPassword());
-		//newUser.setUserPassword(encyptedPassword);
-		//System.out.println(newUser);
 		userRepository.save(newUser);
 		return "redirect:/";
 	}

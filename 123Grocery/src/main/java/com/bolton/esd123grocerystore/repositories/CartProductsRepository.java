@@ -22,8 +22,7 @@ public interface CartProductsRepository extends JpaRepository<CartProducts, Inte
 	
 	public Cart getByCartIdAndUserId(int cartId, int userId);
 	
-//	@Query("select sum (c.subTotalForItem)  from CartProducts c where c.userId like id")
-//	double calculateCartTotalForUser(int id);
+
 
 
 }

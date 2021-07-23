@@ -43,7 +43,6 @@ public class CartProductsServiceImpl implements CartProductsService{
 	@Override
 	public CartProducts updateQuantityByOne(int cartId) {
 		Optional<CartProducts> foundCartProducts = cartProductsRepository.findById(cartId);
-		//foundCartProducts.get().setQuantity(foundCartProducts.get().getQuantity()+1);
 		CartProducts cartProductsToUpdate = foundCartProducts.get();
 		cartProductsToUpdate.setQuantity(foundCartProducts.get().getQuantity()+1);
 		cartProductsToUpdate.setSubTotalForItem(cartProductsToUpdate.getQuantity() * foundCartProducts.get().getProduct().getProductPrice());
@@ -51,7 +50,6 @@ public class CartProductsServiceImpl implements CartProductsService{
 	}
 	@Override
 	public void updateCartProductsSubTotal(int cartId) {
-		// TODO Auto-generated method stub
 		
 	}
 

@@ -25,17 +25,12 @@ public class ProductServiceImpl implements ProductService {
 	public Product findProductById(int Id) {
 		Optional<Product> product = productRepository.findById(Id);
 		Product foundProduct = new Product(product.get().getProductId(), product.get().getProductName(), product.get().getProductDescription(), product.get().getProductPrice(),product.get().getProductStock());
-		System.out.println("Product = " + product);
-		System.out.println("Found Product = " + foundProduct);
 		return foundProduct;
 	}
 
 	@Override
 	public void deleteProductById(int Id) {
-		System.out.println("Product ID = " + Id);
 		Optional<Product> product = productRepository.findById(Id);
-		System.out.println("Product = " + product);
-		//productRepository.deleteById(Id);
 		productRepository.delete(product.get());
 	}
 
@@ -48,7 +43,6 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public Iterable<Product> findByProductName(String sName) {
 		Iterable<Product> products = productRepository.findByNameIgnoreCase(sName);
-		System.out.println (products);
 		return products;
 	}
 

@@ -59,7 +59,6 @@ public class ProductController {
 	@RequestMapping(value = "/searchProduct")
 	public String searchProduct(@RequestParam String sName, ModelMap model) {
 		Iterable<Product> productFound = productService.findByProductName(sName);
-		System.out.println("Product found = " + productFound);
 		model.put("product", productFound);
 		
 		return "/searchProductResults";

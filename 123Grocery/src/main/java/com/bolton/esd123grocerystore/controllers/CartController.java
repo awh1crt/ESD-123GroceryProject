@@ -73,12 +73,8 @@ public class CartController {
 	@GetMapping("/buyProduct")
 	public String addProductToCart(@RequestParam int productId,@ModelAttribute("userName") String user ) {
 		int quantity = 1;
-		System.out.println("user = " + user);
 		User userDetails = userRepository.findByUserEmail(user);
-		System.out.println("user details = " + userDetails);
 		int userId = userDetails.getUserId();
-		System.out.println("USer id = " + userId);
-		System.out.println("product id = "+ productId);
 		boolean exists  = cartRepository.existsByUserIdAndProductId(userId, productId);
 		if (exists) {
 			Cart cartToUpdateId =  cartRepository.getByUserIdAndProductId(userId, productId);
@@ -86,8 +82,6 @@ public class CartController {
 			cartRepository.save(cartToUpdateId);
 			cartProductsService.updateQuantityByOne(cartToUpdateId.getCartId());
 			productService.removeOneFromStockLevel(productId);
-//			double totalPrice = cartProductsRepository.calculateCartTotalForUser(userId);
-//			System.out.println("tota price = " + totalPrice);
 		} else {
 		
 			Cart cartDetails = cartService.addItemstoCartByProductAndQuantityAndUser(productId, quantity, userId);
